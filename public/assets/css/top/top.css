@@ -1,0 +1,272 @@
+
+div.block_top{
+/*    height: 100%;*/
+    width: 100%;
+    margin-top: 60px;
+    overflow: hidden;
+/*    width: 1024px;
+    height: 683px;*/
+}
+div.block_top img{
+    width: 100%;
+    height: auto;
+    animation: fadeIn 5s ease 0s 1 normal;
+  
+}
+/*header{
+    animation: Header 0s ease 0s 1 alternate;
+    -webkit-animation: fadeIn 1s ease 5s 1 normal;*/
+     /*animation-name: Header;*/
+/*animation-duration: 5s;
+animation-timing-function: ease;
+animation-iteration-count: infinite;
+animation-delay: -2s;*/
+/*}*/
+@keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes fadeIn {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+/*@keyframes Header {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}
+
+@-webkit-keyframes Header {
+    0% {opacity: 0}
+    100% {opacity: 1}
+}*/
+
+/*#slideshow {
+position: relative;
+width: 100%;
+display: block;
+height: auto;
+}
+.slideContents {
+position: relative;
+background: lightSeaGreen;
+text-align: center;
+-webkit-user-select: none;
+user-select: none;
+
+}
+.slideContents {
+width: 500%;
+-webkit-transition: -webkit-transform .6s;
+transition: transform .6s;
+}
+.slideContents::after {
+content: "";
+display: block;
+clear: both;
+}*/
+/*.slideContents{
+    position: relative;
+    user-select: none;
+}*/
+/*.slideContents section {
+float: left;
+width: 20%;
+-webkit-transition: opacity .6s;
+transition: opacity .6s;
+}
+.slideContents section img {
+box-sizing: border-box;
+-moz-box-sizing: border-box;
+max-width: 100%;
+height: auto;
+
+vertical-align: middle;
+}*/
+
+/*.slideContents section {
+-webkit-animation: autoplay 30s infinite;
+animation: autoplay 30s infinite;
+}
+.slideContents #slide1 {
+position: relative;
+-webkit-animation-delay: 0;
+animation-delay: 0;
+}
+.slideContents #slide2 {
+-webkit-animation-delay: -24s;
+animation-delay: -24s;
+}
+.slideContents #slide3 {
+-webkit-animation-delay: -18s;
+animation-delay: -18s;
+}
+.slideContents #slide4 {
+-webkit-animation-delay: -12s;
+animation-delay: -12s;
+}
+.slideContents #slide5 {
+-webkit-animation-delay: -6s;
+animation-delay: -6s;
+}
+@-webkit-keyframes autoplay {
+0% { -webkit-transform: translateX(0); }
+16% { -webkit-transform: translateX(0); }
+20% { -webkit-transform: translateX(-100%); }
+20.001% { -webkit-transform: translateX(100%); }
+96% { -webkit-transform: translateX(100%); }
+100% { -webkit-transform: translateX(0); }
+}
+@keyframes autoplay {
+0% { transform: translateX(0); }
+16% { transform: translateX(0); }
+20% { transform: translateX(-100%); }
+20.001% { transform: translateX(100%); }
+96% { transform: translateX(100%); }
+100% { transform: translateX(0); }
+}*/
+
+h1{
+    font-family: 'Georgia',  sans-serif;
+}
+
+div.block_intro{
+    clear: both;
+       margin: 30px auto;
+}
+div.block_intro p{
+    margin: auto;
+}
+div.block_subtitle{
+    padding: 0 100px;
+    padding-top: 10px;
+}
+h2{
+    font-family: 'Georgia',  sans-serif;
+    text-align: center;
+    border: 5px double  #444444;
+    padding: 10px;
+    margin: 30px auto;
+}
+div.block_plan {
+    border: dashed 1px #808080;
+    padding: 10px 40px;
+}
+div.block_intro span.blue{
+    color: #4BBBD4;
+    font-size: 50px;
+}
+h3 span{     
+    border-bottom: 3px solid #b8860b;
+}
+
+div.description_wedding1 p span{
+       color: #4BBBD4;
+       font-size: 20px;
+}
+div.description_wedding1 p  span.gold{
+       font-family: 'Georgia',  sans-serif;
+       color: #b8860b;
+}
+
+div.block_wedding{
+    clear: both;
+    margin: 0 auto;
+    display: flex;
+    -webkit-flex-wrap: wrap;  
+    flex-wrap:         wrap;
+    justify-content:         space-between;
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+div.block_wedding img{
+    height: auto;
+    width: 100%;
+}
+@media screen and (min-device-width: 480px) { 
+div.image_wedding1{
+    max-width: 500px; 
+    order: 1;
+  padding: 20px 10px;
+}
+div.description_wedding1{
+    max-width: 500px;
+    order:2 ;
+    padding: 20px 10px ;
+
+}
+
+div.image_wedding2{
+    max-width: 500px;
+    order: 4;
+
+}
+div.description_wedding2{
+    max-width: 500px;
+    order: 3;
+    padding: 20px 10px;
+}
+}
+@media screen and (max-device-width: 480px) { 
+div.image_wedding1{
+    /*max-width: 520px;*/ 
+    order: 1;
+
+}
+div.description_wedding1{
+    /*max-width: 520px;*/
+    order:2 ;
+    padding: 20px 0px ;
+
+}
+
+div.image_wedding2{
+    /*max-width: 520px;*/
+    order: 4;
+
+}
+div.description_wedding2{
+    /*max-width: 520px;*/
+    order: 3;
+    padding: 20px 0px;
+}
+}
+
+@media screen and (max-width:1257px){
+    div.block_wedding{justify-content: center;}
+    div.image_wedding2{order: 3;}
+    div.description_wedding2{order: 4;}
+}
+
+div.banner_request{
+    margin: 50px auto;
+}
+
+div.banner_request a{
+    background-color: #b8860b;
+    border: 2px solid #b8860b;
+    color: #fff;
+    line-height: 50px;
+    margin: 30px auto;
+    padding: 10px 80px;
+    text-decoration: none;
+    font-size: 20px;
+}
+div.banner_request a:hover{
+    background-color: #fff;
+    border-color: #b8860b;
+    color: #b8860b;
+    text-shadow: 1px 1px 0 #000000;
+}
+#map_canvas {
+    width: 100%;
+    height: 400px;
+    margin: 0px auto;
+    border: 15px solid #4BBBD4;
+}
+.map{
+  display: flex;
+  justify-content: center;
+/*  padding-bottom: 30px;*/
+}

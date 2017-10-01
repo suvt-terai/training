@@ -1,0 +1,91 @@
+
+<header class="block_headter">
+    <div class="block_title"> 
+        <a href="/"><img src="/assets/img/logo.png" alt="logo"></a>
+    </div>
+</header>
+<div class="contents">
+    <div class="block_img">
+  
+        <h1>資料請求フォーム</h1>
+    </div>
+    <h3 class="center">お客様の情報をご入力ください</h3>
+    <p class="center">下記フォームに必要事項をご入力の上、送信ボタンを押してください。<br>
+        <span>※</span> がついている項目は、必ず入力してください。</p>
+    
+    <form action="/request/confirm" method="post">
+
+        <table>
+            <tr>
+                <th>お名前<span>※</span></th>
+                <td>
+                    <input type="text" size="40" name="username" value="{{data.username}}" maxlength='20' placeholder="鈴木太郎"  />
+                    {% if error.username %}<h5>{{error.username}}</h5>{% endif %}
+                </td>
+            </tr>
+            <tr>
+                <th>ふりがな<span>※</span></th>
+                <td><input type="text" size="40" name="userkana" value="{{data.userkana}}" maxlength='50' placeholder="すずきたろう" />
+                 {% if error.userkana %}<h5>{{error.userkana}}</h5>{% endif %}
+            </tr>
+            <tr>
+                <th rowspan="6">住所<span>※</span></th>
+            </tr>
+            <tr>
+
+                <td>郵便番号<span>※</span><input type="text" size="40" name="postalcode" maxlength='7' value="{{data.postalcode|escape('html')}}" placeholder="5680881（ハイフンなし）"   />
+                 {% if error.postalcode %}<h5>{{error.postalcode}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+
+                <td>都道府県<span>※</span>
+                    <select id="pref_id" name="pref" >
+        {%for  key ,value in prefall %}
+            <option value="{{key}}" {%if data.pref == key %} selected="selected" {%endif%}>
+                {{value}}</option>{%endfor%}</select><br>
+                    
+                    {% if error.pref %}<h5>{{error.pref}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+
+                <td>市区町村<span>※</span><input type="text" size="40" name="cities" maxlength='20' value="{{data.cities}}" placeholder="豊中市"  />
+                 {% if error.cities %}<h5>{{error.cities}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+                <td>町域名・番地など<span>※</span><input type="text" size="40" name="adress1" maxlength='20' value="{{data.adress1}}" placeholder="中桜塚1丁目17-50"  />
+                 {% if error.adress1 %}<h5>{{error.adress1}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+                <td>建物名・部屋番号など<input type="text" size="40" name="adress2" maxlength='50' value="{{data.adress2}}" placeholder="さんさん豊中401"/></td>
+            </tr>
+            <tr>
+                <th>電話番号<span>※</span></th>
+                <td><input type="text" size="40" name="tel" value="{{data.tel}}" maxlength='11' placeholder="0668461120（ハイフンなし）"  />
+                {% if error.tel %}<h5>{{error.tel}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+                <th>メールアドレス<span>※</span></th>
+                <td><input type="text" size="40" name="email" value="{{data.email}}" maxlength='200' placeholder="wedding@gmail.com"  />
+                {% if error.email %}<h5>{{error.email}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+                <th>パスワード<span>※</span></th>
+                <td><input type="password" name="password" value="{{data.password}}" maxlength='20' size="20" />
+                {% if error.password %}<h5>{{error.password}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+                <th>パスワード確認<span>※</span></th>
+                <td><input type="password" name="passwordconfirm" value="{{data.passwordconfirm}}" maxlength='20' size="20"  required/></td>
+            </tr>
+            <tr>
+                <th>個人情報取り扱いについて</th>
+                <td>上記のお客様より提出していただいた個人情報については、弊社へご請求していただきました資料送付、お客様との間の連絡のためにご利用させていただくほかは、お客様が住所、電話番号、ファックス番号、メールアドレス等の個人情報をお客様の同意なしに第三者に開示することはありません。（情報停止が必要であれば弊社へ直接お電話にてご連絡お願い申し上げます。）</td>
+            </tr>
+        </table>
+        <div class="block_form ">
+            <input type="submit" class="submit" value="内容を確認の上、確認画面へ" />
+            <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+            </div>
+    </form>
+        
+</div>

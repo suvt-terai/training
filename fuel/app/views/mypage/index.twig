@@ -1,0 +1,43 @@
+{% include 'inc/header.twig' %}
+<div class="contents">
+    <div class="block_img">
+        <h1>{{username}}さんのMyPage</h1>
+    </div>
+<div class="block_tabmenu ">
+    <div class="tab">
+        <a class="mypage">資料請求履歴</a>
+        <a class="hover" href="/mypage/userinfo">お客様情報</a>
+        <a class="hover" href="/mypage/userpw">パスワード変更</a>
+    </div>
+    <div class="tab_contents back_ground"> 
+        <h2 class="history">資料請求履歴</h2>
+        <ul class="menu">
+            {% for key,val in data%}
+                <li>
+                    <label class="title" for="title{{key}}">{%if val.adminreply==1%}{{val.adminname}}{%else%}{{username}}{%endif%}：{{val.message}} <span class="date">  {{val.created_at|date('Y/m/d H:i')}}</span></label>
+
+                    <input type="checkbox"  id="title{{key}}" class="on-off" />
+
+                    <ul>
+                        <li class="space"><h3 class="name">{%if val.adminreply==1%}{{val.adminname}}{%else%}{{username}}{%endif%}</h3></li>
+                        <li class="space"><h3>{{val.message|nl2br}}</h3></li>
+                    </ul>
+                </li>
+            {% endfor%}
+            {{pagination}}
+            <li>
+                <form action="/mypage/replyconfirm" method="post">
+                    <ul>
+                        <li class="space">
+                            <textarea name="reply"  cols=60 rows=10>{{post.reply}}</textarea>
+                            {% if error.reply %}<h5>{{error.reply}}</h5>{% endif %}
+                        </li>
+                        <li class="space"><input type="submit" class="submitreply" value="確認画面へ"></li>
+                        <li><input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" /></li>
+
+                    </ul> 
+                </form>
+            </li>
+        </ul>
+    </div>
+</div>

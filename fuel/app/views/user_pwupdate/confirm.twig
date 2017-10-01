@@ -1,0 +1,21 @@
+<h3>お客様情報</h3>
+<form action="/user_pwupdate/complete" method="post">
+    <h4>パスワード変更</h4>
+    <table>
+
+        <tr>
+            <th>新しいパスワード<span>※</span></th>
+            <td>非表示<input type="hidden" name="new_password" value="{{post.new_password}}" /></td>
+        <input type="hidden" name="id" value="{{post.id}}" />
+        <input type="hidden" name="username" value="{{post.username}}" />
+    </table>
+    <div class="block_form ">
+        <input class="submit" type="submit" value="送信する" />
+        <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+</form>
+<form action="../user_pwupdate/index" method="post">
+    {%for key, value in post %}
+        <input type="hidden" name="{{key}}" value="{{value}}">
+    {%endfor%}
+    <input type="submit" class="return" value="修正する" />
+</form>

@@ -1,0 +1,55 @@
+<h2>返信画面</h2> 
+<a href="/admin">管理画面</a>
+<div class="menu">
+    {% for key,val in data%}
+        <label for="title{{key}}"><p class="title"><div class="title">{%if val.adminreply==1%}{{val.adminname}}{%else%}{{val.username}}{%endif%}：{{val.message}}</div> <span class="delete">
+                <a class="delete" href="request_delete?id={{val.id}}">削除</a></span>
+            <span class="date"> : {{val.created_at|date('Y/m/d H:i')}}</span></p></label>
+
+        <input type="checkbox"  id="title{{key}}" class="on-off" checked/>
+
+        <ul>
+            <li class="name">{%if val.adminreply==1%}{{val.adminname}}{%else%}{{val.username}}{%endif%}</li>
+            <li>{{val.message|nl2br}}</li>
+        </ul>
+
+        {#                    <input type="hidden" name="user_id" value="{{val.user_id}}"/>#}
+    {% endfor%}
+
+    <ul>
+        <input type="checkbox" id="title3" class="on-off" checked />
+{#
+        <table border="1">
+            
+            <tr>
+                <th width="200">who</th>
+                <th  width="500">message</th>
+                <th  width="200">date</th>
+                <th width="100">delete</th>
+            </tr>
+            {% for key,val in data%}
+            <tr>
+                <td width="200">{%if val.adminreply==1%}{{val.adminname}}{%else%}{{val.username}}{%endif%}</td>
+                <td width="500">{{val.message|nl2br}}</td>
+                <td width="200">{{val.created_at|date('Y/m/d H:i')}}</td>
+                <td width="100"><a href="request_delete?id={{val.id}}">削除</a></td>
+            </tr>
+            {% endfor%}
+        </table>    #}
+        <li> <form action="/request_reply/confirm" method="post">
+
+                {% if post.user_id %}<input type="hidden" name="user_id" value="{{post.user_id}}"/>
+                {%else%} <input type="hidden" name="user_id" value="{{id}}"/>{%endif%}
+                <p>管理者名：<input type="text" name="adminname" value="{{post.adminname}}"></p>
+                {% if error.adminname %}<h5>{{error.adminname}}</h5>{% endif %}</li>
+        <textarea name="reply" value="{{post.reply}}" maxlength='200' cols=60 rows=10>{{post.reply}}</textarea>
+        {% if error.reply %}<h5>{{error.reply}}</h5>{% endif %}</li>
+        <li><input type="submit" class="submitreply" value="確認画面へ"></li>
+        <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+
+        </form>
+    </ul>
+
+
+</ul>
+</div>

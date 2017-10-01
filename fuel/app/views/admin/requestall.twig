@@ -1,0 +1,35 @@
+
+<a href="/admin"  >管理画面TOP</a>
+
+<h2>資料請求一覧</h2>
+<form action="/admin/selectdata" method="post">
+    日付検索<input type="data" name="data"  placeholder="2017/8/30">
+    {% if error.data %}<h5>{{error.data}}</h5>{% endif %}</td>
+    <input type="submit" value="検索">
+</form>
+<table border='1'>
+    <tr>
+
+        <th>ユーザー名</th>
+        <th>請求日</th>
+        <th>返答日付</th>
+        <th>件数</th>
+        <th>返信する</th>
+    
+
+    </tr>
+    {% for key,val in data%}
+    <tr>
+    
+        <td>  {{val.username|nl2br}}</td>
+{#        <td width="50"> {{data.username}}</td>#}
+        <td>{{ val.created_at|date('Y/m/d H:i') }}</td>
+        <td>{%if val.max==NULL%}未回答{%else%}{{val.max|date('Y/m/d H:i')}}{%endif%}</td>
+        <td>{%if val.count==NULL%}未回答{%else%}{{val.count}}{%endif%}</td>
+        <td><a href="/request_reply?id={{val.id}}">返信する<input type="hidden" name="requset_id" value="{{request_data.id}}"></a></td>
+    </tr>
+
+    {%endfor%}
+
+</table>
+{{pagination}}

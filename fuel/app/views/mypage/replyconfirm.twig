@@ -1,0 +1,39 @@
+{% include 'inc/header.twig' %}
+
+<div class="contents">
+    <div class="block_img">
+        <h1>{{username}}さんのMyPage</h1>
+    </div>
+
+    <div class="block_tabmenu">
+        <div class="tab">
+            <a class="mypage">資料請求履歴</a>
+            <a class="hover" href="/mypage/userinfo">お客様情報</a>
+            <a class="hover" href="/mypage/userpw">パスワード変更</a>
+        </div>
+        <div class="tab_contents  back_ground">
+            <h2 class="history">資料請求履歴</h2>
+                <div class="menu">
+                      
+                    <div class="space">
+                        {{post.reply|nl2br}}
+                    </div>
+                    <div class="block_replyform">
+                        <div class="space">
+                            <form action="/mypage/replycomplete" method="post" class="submit">
+                                <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+                                <input type="hidden" name="reply" value="{{post.reply}}" />
+                                <input type="submit" class="submitreply" value="送信する">
+                            </form>
+                        </div>
+                        <div class="space"> 
+                            <form action="../mypage/" method="post" class="return">
+                                <input type="hidden" name="reply" value="{{post.reply}}" />
+                                <input type="submit" class="returnreply" value="修正する" /> 
+                            </form>
+                        </div>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>

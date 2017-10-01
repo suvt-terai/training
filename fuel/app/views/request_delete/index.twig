@@ -1,0 +1,22 @@
+
+<h2>削除確認画面</h2>
+<form action="/request_delete/complete" method="post">
+<table>
+    <tr>
+        <th>名前</th>
+        <td>{{data.username}}</td>
+    </tr>
+    <tr>
+        <th>内容</th>
+        <td>{{data.message}}</td>
+    </tr>
+    <tr>
+        <th>日付</th>
+        <td>{{data.created_at|date('Y/m/d H:i')}}</td>
+    </tr>
+    
+</table>
+    <p>  <input type="submit" value="送信する"></p>
+    <input type="hidden" name="id" value="{%if post%}{{post.id}}{%else%}{{data.id}}{%endif%}">
+    <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+</form>

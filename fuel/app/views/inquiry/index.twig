@@ -1,0 +1,42 @@
+{% include 'inc/header.twig' %}
+<div class="contents">
+    <div class="block_img">
+        <h1>問い合わせフォーム</h1>
+    </div>
+
+    <p class="center">下記フォームに必要事項をご入力の上、送信ボタンを押してください。<br>
+        <span>※</span> がついている項目は、必ず入力してください。</p>
+    <form action="/inquiry/confirm" method="post">
+
+        <table>
+            <tr>
+                <th>お名前<span>※</span></th>
+                <td><input type="text" size="40" name="name" value="{{data.name}}" maxlength='20' placeholder="鈴木太郎" />
+                 {% if error.name %}<h5>{{error.name}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+                <th>ふりがな<span>※</span></th>
+                <td><input type="text" size="40" placeholder="すずきたろう" name="kana" maxlength='50' value="{{data.kana}}" />
+                 {% if error.kana %}<h5>{{error.kana}}</h5>{% endif %}</td>
+            </tr>
+
+            <tr>
+                <th>メールアドレス<span>※</span></th>
+                <td><input type="text" size="40" placeholder="wedding@gmail.com" name="email" maxlength='200' value="{{data.email}}" />
+                 {% if error.email %}<h5>{{error.email}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+                <th>問い合わせ内容<span>※</span></th>
+                <td><textarea name="detail" maxlength='200' cols=60 rows=7>{{data.detail}}</textarea>
+                    {% if error.detail %}<h5>{{error.detail}}</h5>{% endif %}</td>
+            <tr>
+                <th>個人情報取り扱いについて</th>
+                <td>上記のお客様より提出していただいた個人情報については、弊社へご請求していただきました資料送付、お客様との間の連絡のためにご利用させていただくほかは、お客様が住所、電話番号、ファックス番号、メールアドレス等の個人情報をお客様の同意なしに第三者に開示することはありません。（情報停止が必要であれば弊社へ直接お電話にてご連絡お願い申し上げます。）</td>
+            </tr>
+        </table>
+        <div class="block_form ">    
+            <p><input type="submit" class="submit" value="内容を確認の上、確認画面へ" /></p>
+             <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+        </div>
+    </form>
+</div>

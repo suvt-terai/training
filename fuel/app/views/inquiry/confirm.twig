@@ -1,0 +1,47 @@
+
+{% include 'inc/header.twig' %}
+<div class="contents">
+    <div class="block_img">
+        <h1>問い合わせフォーム</h1>
+    </div>
+
+    <p>以下のお問い合せ内容を送信します。<br>
+        送信する場合は「送信する」ボタンをクリックしてください。<br>
+        内容を修正する場合は「修正する」ボタンをクリックし、内容を修正してください。</p>
+
+        <table>
+            <tr>
+                <th>お名前<span>※</span></th>
+                <td>{{data.name}}</td>
+            </tr>
+            <tr>
+                <th>ふりがな<span>※</span></th>
+                <td>{{data.kana}}<input type="hidden"  name="kana" value="{{data.kana}}" /></td>
+            </tr>
+
+            <tr>
+                <th>メールアドレス<span>※</span></th>
+                <td>{{data.email}}</td>
+            </tr>
+            <tr>
+                <th>問い合わせ内容<span>※</span></th>
+                <td>{{data.detail|nl2br}}</td>
+
+        </table>
+        <div class="block_form ">
+            <form action="complete" method="post" class="submit">
+                <input type="hidden"  name="name" value="{{data.name}}" />
+                <input type="hidden" name="email" value="{{data.email}}" />
+                <input type="hidden" name="detail" value="{{data.detail}}">
+                <p><input type="submit" class="submit" value="送信する" /></p>
+                <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+            </form>
+            <form action="/inquiry" method="post" class="return">
+                {%for key, value in data %}
+                    <input type="hidden" name="{{key}}" value="{{value}}">
+                {%endfor%}
+                <p><input type="submit" class="return" value="修正する" /></p>
+            </form>
+        </div>
+</div>
+

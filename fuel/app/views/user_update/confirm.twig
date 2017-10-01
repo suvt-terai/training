@@ -1,0 +1,62 @@
+<h2>変更画面</h2>  
+<form action="/user_update/complete" method="post">
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <td>{{data.id}}<input type="hidden" size="40" name="id" value="{{data.id}}" /></td>
+        </tr>
+        <tr>
+            <th>お名前<span>※</span></th>
+            <td>{{data.username}}<input type="hidden" name="username" value="{{data.username}}"  /></td>
+        </tr>
+        <tr>
+            <th>ふりがな<span>※</span></th>
+            <td>{{data.userkana}}<input type="hidden" name="userkana" value="{{data.userkana}}"/></td>
+        </tr>
+        <tr>
+            <th rowspan="6">住所<span>※</span></th>
+        </tr>
+        <tr>
+
+            <td>郵便番号<span>※</span> : {{data.postalcode}}<input type="hidden"  name="postalcode" value="{{data.postalcode}}"  /></td>
+        </tr>
+        <tr>
+
+            <td>都道府県<span>※</span> : {{prefall[data.pref]}}<input type="hidden" name="pref" value="{{data.pref}}">
+        </tr>
+        <tr>
+
+            <td>市区町村<span>※</span> : {{data.cities}}<input type="hidden"  name="cities" value="{{data.cities}}" /></td>
+        </tr>
+        <tr>
+            <td>町域名・番地など<span>※</span> : {{data.adress1}}<input type="hidden"  name="adress1" value="{{data.adress1}}" /></td>
+        </tr>
+        <tr>
+            <td>建物名・部屋番号など : {{data.adress2}}<input type="hidden" name="adress2" value="{{data.adress2}}" /></td>
+        </tr>
+        <tr>
+            <th>電話番号<span>※</span></th>
+            <td>{{data.tel}}<input type="hidden" size="40" name="tel" value="{{data.tel}}" placeholder="0668461120（ハイフンなし）"  required/></td>
+        </tr>
+        <tr>
+            <th>メールアドレス<span>※</span></th>
+            <td>{{data.email}}<input type="hidden" size="40" name="email" value="{{data.email}}" placeholder="wedding@gmail.com"  required/></td>
+        </tr>
+
+    </table>
+    <div class="block_form ">
+        <input class="submit" type="submit" value="送信する" />
+        <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+</form>
+<form action="../user_update" method="post">
+    {%for key, value in data %}
+        <input type="hidden" name="{{key}}" value="{{value}}">
+    {%endfor%}
+    <input type="submit" class="return" value="修正する" />
+</div>
+</form>
+</div>
+
+
+

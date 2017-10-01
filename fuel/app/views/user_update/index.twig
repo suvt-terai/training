@@ -1,0 +1,63 @@
+<h2>変更画面</h2>
+<form action="/user_update/confirm" method="post">
+    {#    {{data.0}}#}
+    <table>
+        <tr>
+            <th>ID</th>
+            <td>{% if post %}{{post.id}}{%else %}{{data.id}}{%endif%}<input type="hidden" size="40" name="id" value="{% if post %}{{post.id}}{%else %}{{data.id}}{%endif%}" /></td>
+        </tr>
+        <tr>
+            <th>お名前<span>※</span></th>
+            <td>{% if post %}{{post.username}}{%else %}{{data.username}}{%endif%}<input type="hidden" size="40" name="username" value="{% if post %}{{post.username}}{%else %}{{data.username}}{%endif%}" /></td>
+        </tr>
+        <tr>
+            <th>ふりがな<span>※</span></th>
+            <td><input type="text" size="40" name="userkana" value="{% if post %}{{post.userkana}}{%else %}{{profile_fields.userkana}}{%endif%}" placeholder="すずきたろう"  required/>
+                {% if error.userkana %}<h5>{{error.userkana}}</h5>{% endif %}</td>
+        </tr>
+        <tr>
+            <th rowspan="6">住所<span>※</span></th>
+        </tr>
+        <tr>
+
+            <td>郵便番号<span>※</span><input type="text" size="40" name="postalcode" value="{% if post %}{{post.postalcode}}{%else %}{{profile_fields.postalcode}}{%endif%}" placeholder="5680881（ハイフンなし）"  required />
+                {% if error.postalcode %}<h5>{{error.postalcode}}</h5>{% endif %}</td>
+        </tr>
+        <tr>
+
+            <td>都道府県<span>※</span><select id="pref_id" name="pref" value = "{% if post %}{{post.pref}}{%else %}{{profile_fields.pref}}{%endif%}">
+                    {%for  key ,value in prefall %}
+                        {% if post %} <option value="{{key}}"{%if post.pref == key %} selected="selected" {%endif%}>
+                        {% else %}<option value="{{key}}"{%if profile_fields.pref == key %} selected="selected" {%endif%}>
+                            {% endif %}
+                            {{value}}</option>{%endfor%}</select>
+                    {% if error.pref %}<h5>{{error.pref}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+
+                <td>市区町村<span>※</span><input type="text" size="40" name="cities" value="{% if post %}{{post.cities}}{%else %}{{profile_fields.cities}}{%endif%}" placeholder="豊中市"  required/>
+                    {% if error.cities %}<h5>{{error.cities}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+                <td>町域名・番地など<span>※</span><input type="text" size="40" name="adress1" value="{% if post %}{{post.adress1}}{%else %}{{profile_fields.adress1}}{%endif%}" placeholder="中桜塚1丁目17-50"  required/>
+                    {% if error.adress1 %}<h5>{{error.adress1}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+                <td>建物名・部屋番号など<input type="text" size="40" name="adress2" value="{% if post %}{{post.adress2}}{%else %}{{profile_fields.adress2}}{%endif%}" placeholder="さんさん豊中401"/></td>
+            </tr>
+            <tr>
+                <th>電話番号<span>※</span></th>
+                <td><input type="text" size="40" name="tel" value="{% if post %}{{post.tel}}{%else %}{{profile_fields.tel}}{%endif%}" placeholder="0668461120（ハイフンなし）"  required/>
+                    {% if error.tel %}<h5>{{error.tel}}</h5>{% endif %}</td>
+            </tr>
+            <tr>
+                <th>メールアドレス<span>※</span></th>
+                <td><input type="text" size="40" name="email" value="{% if post %}{{post.email}}{%else %}{{data.email}}{%endif%}" placeholder="wedding@gmail.com"  required/>
+                    {% if error.email %}<h5>{{error.email}}</h5>{% endif %}</td>
+            </tr>
+           
+        </table>
+        <input type="submit" value="確認画面へ">
+        <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+
+    </form>

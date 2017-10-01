@@ -1,0 +1,13 @@
+desktop.ini
+Thumbs.db
+.DS_Store
+/nbproject/private/
+/docs/
+/fuel/app/config/*/migrations.php
+/fuel/app/cache/*
+!/fuel/app/cache/.gitkeep
+/fuel/app/logs/*
+!/fuel/app/logs/.gitkeep
+/fuel/app/tmp/*
+!/fuel/app/tmp/.gitkeep
+/fuel/nbproject/private/

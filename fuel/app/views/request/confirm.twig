@@ -1,0 +1,89 @@
+<header class="block_headter">
+    <div class="block_title"> 
+        <a href="/"><img src="/assets/img/logo.png" alt="logo"></a>
+    </div>
+</header>
+<div class="contents">
+    <div class="block_img">
+        <h1>資料請求フォーム</h1>
+    </div>
+    <h3 class="center">お客様の情報をご入力ください</h3>
+    <p class="center">以下のお問い合せ内容を送信します。<br>
+        送信する場合は「送信する」ボタンをクリックしてください。<br>
+        内容を修正する場合は「修正する」ボタンをクリックし、内容を修正してください。</p>
+ 
+        <table>
+            <tr>
+                <th>お名前<span>※</span></th>
+                <td>{{data.username}}</td>
+            </tr>
+            <tr>
+                <th>ふりがな<span>※</span></th>
+                <td>{{data.userkana}}</td>
+            </tr>
+            <tr>
+                <th rowspan="6">住所<span>※</span></th>
+            </tr>
+            <tr>
+
+                <td>郵便番号<span>※</span> : {{data.postalcode}}</td>
+            </tr>
+            <tr>
+
+                <td>都道府県<span>※</span> : {{prefall[data.pref]}}
+            </tr>
+            <tr>
+
+                <td>市区町村<span>※</span> : {{data.cities}}</td>
+            </tr>
+            <tr>
+                <td>町域名・番地など<span>※</span> : {{data.adress1}}</td>
+            </tr>
+            <tr>
+                <td>建物名・部屋番号など : {{data.adress2}}</td>
+            </tr>
+            <tr>
+                <th>電話番号<span>※</span></th>
+                <td>{{data.tel}}</td>
+            </tr>
+            <tr>
+                <th>メールアドレス<span>※</span></th>
+                <td>{{data.email}}</td>
+            </tr>
+            <tr>
+                <th>パスワード<span>※</span></th>
+                <td>非公表</td>
+            </tr>
+            <tr>
+                <th>パスワード確認<span>※</span></th>
+                <td>非公表</td>
+            </tr>
+
+
+        </table>
+        <div class="block_form ">
+            <form action="complete" method="post" class="submit">
+                <input type="hidden" name="username" value="{{data.username}}"  />
+                <input type="hidden" name="userkana" value="{{data.userkana}}"/>
+                <input type="hidden" name="pref" value="{{data.pref}}">
+                <input type="hidden"  name="postalcode" value="{{data.postalcode}}"  />
+                <input type="hidden"  name="cities" value="{{data.cities}}" />
+                <input type="hidden"  name="adress1" value="{{data.adress1}}" />
+                <input type="hidden" name="adress2" value="{{data.adress2}}" />
+                <input type="hidden" name="tel" value="{{data.tel}}"/>
+                <input type="hidden" name="email" value="{{data.email}}" />
+                <input type="hidden" name="password" value="{{data.password}}"/>
+                <input type="hidden" name="passwordconfirm" value="{{data.passwordconfirm}}" />
+                <input class="submit" type="submit" value="送信する" />
+                <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+            </form>
+            <form action="../request" method="post" class="return">
+                {%for key, value in data %}
+                <input type="hidden" name="{{key}}" value="{{value}}">
+                {%endfor%}
+                <input type="submit" class="return" value="修正する" />
+            </form>
+        </div>
+</div>
+
+

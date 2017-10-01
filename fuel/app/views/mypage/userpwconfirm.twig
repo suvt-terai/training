@@ -1,0 +1,37 @@
+{% include 'inc/header.twig' %}
+<div class="contents">
+    <div class="block_img">
+        <h1>{{username}}さんのMyPage</h1>
+    </div>
+    <div class="block_tabmenu">
+      <div class="tab">
+            <a class="hover" href="/mypage">資料請求履歴</a>
+            <a class="hover" href="/mypage/userinfo">お客様情報</a>
+            <a class="userpw">パスワード変更</a>
+        </div>
+        <div class="tab_contents back_ground">
+            <h2 class="userpw space">お客様情報</h2>
+            <h3 class="space">パスワード変更</h3>
+            <table>
+                <tr>
+                    <th>新しいパスワード<span>※</span></th>
+                    <td>非表示</td>
+            </table>
+            <div class="block_form ">
+                <form action="/mypage/userpwcomplete" method="post" class="submit">
+                <input type="hidden" name="new_password" value="{{post.new_password}}" />
+                <input type="hidden" name="old_password" value="{{post.old_password}}">
+                <input class="submit" type="submit" value="送信する" />
+                <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+                </form>
+                <form action="../mypage/userpw" method="post" class="return">
+                    {%for key, value in post %}
+                        <input type="hidden" name="{{key}}" value="{{value}}">
+                    {%endfor%}
+                <input type="submit" class="return" value="修正する" />
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+

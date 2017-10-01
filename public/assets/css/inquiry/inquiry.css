@@ -1,0 +1,20 @@
+
+p{
+    text-align: center;
+}
+span{
+    color: red;
+}
+div.block_img{
+    background-image: url('/assets/img/subpage4.jpg');
+}
+
+div.block_form{
+    justify-content: center;
+    display: inline-flex;
+    text-align: center;
+    width: 100%;
+   
+}
+
+

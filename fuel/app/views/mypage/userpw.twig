@@ -1,0 +1,43 @@
+{% include 'inc/header.twig' %}
+<div class="contents">
+    <div class="block_img">
+        <h1>{{username}}さんのMyPage</h1>
+    </div>
+    <div class="block_tabmenu">
+        <div class="tab">
+            <a class="hover" href="/mypage">資料請求履歴</a>
+            <a class="hover" href="/mypage/userinfo">お客様情報</a>
+            <a class="userpw">パスワード変更</a>
+        </div>
+        <div class="tab_contents back_ground">
+            <h2 class="userpw space">お客様情報</h2>
+                <form action="/mypage/userpwconfirm" method="post">
+                <h3 class="space">パスワード変更</h3>
+          
+                <table>
+                    <tr>
+                        <th>変更前パスワード<span>※</span></th>
+                        <td><input type="password" name="old_password" value="{{post.old_password}}" size="20"  required/>
+                         {% if error.old_password %}<h5>{{error.old_password}}</h5>{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>新しいパスワード<span>※</span></th>
+                        <td><input type="password" name="new_password" value="{{post.new_password}}" size="20"  required/>
+                        {% if error.new_password %}<h5>{{error.new_password}}</h5>{% endif %}</td>
+                    </tr>
+                    <tr>
+                        <th>パスワード確認<span>※</span></th>
+                        <td><input type="password" name="new_passwordconfirm" value="{{post.new_passwordconfirm}}" size="20"  required/>
+                        {% if error.new_passwordconfirm %}<h5>{{error.new_passwordconfirm}}</h5>{% endif %}</td>
+                    </tr>
+
+                </table>
+                <p><input type="submit" class="submit" value="内容を確認の上、確認画面へ" /></p>
+                <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+                </form>    
+       
+        </div>
+    </div>
+
+</div>
+

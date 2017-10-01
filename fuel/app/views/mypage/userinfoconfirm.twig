@@ -1,0 +1,78 @@
+{% include 'inc/header.twig' %}
+<div class="contents">
+    <div class="block_img">
+        <h1>{{username}}さんのMyPage</h1>
+    </div>
+    <div class="block_tabmenu">
+        <div class="tab">
+            <a class="hover" href="/mypage">資料請求履歴</a>
+            <a class="userinfo">お客様情報</a>
+            <a class="hover" href="/mypage/userpw">パスワード変更</a>
+        </div>
+        <div class="tab_contents back_ground">
+
+            <h2 class="userinfo space">お客様情報</h2>  
+                <table>
+                    <tr>
+                        <th>お名前<span>※</span></th>
+                        <td>{{data.username}}</td>
+                    </tr>
+                    <tr>
+                        <th>ふりがな<span>※</span></th>
+                        <td>{{data.userkana}}</td>
+                    </tr>
+                    <tr>
+                        <th rowspan="6">住所<span>※</span></th>
+                    </tr>
+                    <tr>
+
+                        <td>郵便番号<span>※</span> : {{data.postalcode}}</td>
+                    </tr>
+                    <tr>
+
+                        <td>都道府県<span>※</span> : {{prefall[data.pref]}}</td>
+                    </tr>
+                    <tr>
+
+                        <td>市区町村<span>※</span> : {{data.cities}}</td>
+                    </tr>
+                    <tr>
+                        <td>町域名・番地など<span>※</span> : {{data.adress1}}</td>
+                    </tr>
+                    <tr>
+                        <td>建物名・部屋番号など : {{data.adress2}}</td>
+                    </tr>
+                    <tr>
+                        <th>電話番号<span>※</span></th>
+                        <td>{{data.tel}}</td>
+                    </tr>
+                    <tr>
+                        <th>メールアドレス<span>※</span></th>
+                        <td>{{data.email}}</td>
+                    </tr>
+                    
+                </table>
+        <div class="block_form ">
+            <form action="/mypage/userinfocomplete" method="post" class="submit">
+                <input type="hidden" name="username" value="{{data.username}}"  />
+                <input type="hidden" name="userkana" value="{{data.userkana}}"/>
+                <input type="hidden"  name="postalcode" value="{{data.postalcode}}"  />
+                <input type="hidden" name="pref" value="{{data.pref}}">
+                <input type="hidden"  name="cities" value="{{data.cities}}" />
+                <input type="hidden"  name="adress1" value="{{data.adress1}}" />
+                <input type="hidden" name="adress2" value="{{data.adress2}}" />
+                <input type="hidden"  name="tel" value="{{data.tel}}" />
+                <input type="hidden" name="email" value="{{data.email}}" />
+                <input class="submit" type="submit" value="送信する" />
+                <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+            </form>
+            <form action="../mypage/userinfo" method="post" class="return">
+                {%for key, value in data %}
+                    <input type="hidden" name="{{key}}" value="{{value}}">
+                {%endfor%}
+                <input type="submit" class="return" value="修正する" />
+            </form>
+        </div>
+    </div>
+</div>
+</div>

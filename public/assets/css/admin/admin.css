@@ -1,0 +1,269 @@
+body{
+    margin: 10px auto;
+    padding: 30px;
+}
+label {
+    clear:both;
+    background: #444;
+    color: #fff;
+    padding: 10px;
+    display: block;
+    margin: 0;
+    border: 1px solid #fff;
+}
+label:hover {
+  background: #555;
+}
+input[type="checkbox"].on-off{
+    display: none;
+}
+/*.menu {
+  height: 500px;
+  width: 500px;
+  margin: 100px auto;
+  padding: 50px;
+  background: #fff;
+}*/
+
+.menu ul {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    margin: 0 ;
+    padding: 0;
+    list-style: none;
+}
+
+.menu li {
+    padding: 5px;
+}
+
+input[type="checkbox"].on-off + ul{
+    height: 0;
+    overflow: hidden;
+}
+
+input[type="checkbox"].on-off:checked + ul{
+    height: auto;
+}
+
+input.submitreply{
+    background-color: #b8860b;
+    border: 2px solid #b8860b;
+    color: #fff;
+    line-height: 30px;
+    margin: 0px 0px;
+    padding: 0px 10px;
+    /*border-radius: 0.3em;*/
+    text-decoration: none;
+    /*font-weight: bolder;*/
+    font-size: 15px;
+    width:auto;
+    text-align: center;
+}
+input.submitreply:hover{
+    background-color: #fff;
+    border-color: #b8860b;
+    color: #b8860b;
+    text-shadow: 1px 1px 0 #00000;
+    cursor: pointer;
+}
+
+div.block_tabmenu{
+    padding:40px;
+    margin:30px auto;
+    color:#444;
+    font-size: 15px;
+    width:1000px;
+    margin-bottom: 60px;
+/*    position: relative;*/
+}
+div.tab{
+    /*    position: absolute;*/
+    top:0px;
+    left:0px;
+    height: 40px;
+}
+div.tab a{
+    float: left;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    width: 150px;
+    display: block;
+    text-decoration:none;
+    color:#444;
+    background:#eee;
+    border-radius: 10px 10px 0 0;
+}
+
+div.tab_contents{
+    width:100%;
+    overflow:hidden;
+    clear:both;
+    border: solid 2px #444;
+}
+div.tab_contents ul{
+    width:100%;
+    height: auto;
+    padding:0px;
+    margin:0px;
+}
+div.tab_contents ul:first-child{
+    border-top: 2px solid #444;
+}
+div.tab_contents li{
+    float: left;
+    width:100%;
+    height: auto;
+    list-style-type:none;
+    padding:20px  20px  20px 20px;
+    background:#e2e2e2;
+}
+
+label {
+    clear:both;
+    background: #444;
+    color: #fff;
+    padding: 10px;
+    display: block;
+    margin: 0;
+    border: 1px solid #fff;
+   
+}
+p.title {
+    margin: 0;
+   
+    text-align: left;
+}
+div.title{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    width: 50%;  
+    margin: 0;
+   
+    text-align: left;
+}
+
+label:hover {
+  background: #555;
+}
+input[type="checkbox"].on-off{
+    display: none;
+}
+/*.menu {
+  height: 500px;
+  width: 500px;
+  margin: 100px auto;
+  padding: 50px;
+  background: #fff;
+}*/
+
+.menu ul  {
+    -webkit-transition: all 0.5s;
+    -moz-transition: all 0.5s;
+    -ms-transition: all 0.5s;
+    -o-transition: all 0.5s;
+    transition: all 0.5s;
+    margin: 0 ;
+    padding: 0;
+    list-style: none;
+}
+
+.menu li{
+    padding: 5px;
+    width: 80%;
+}
+.menu li.name{
+    font-weight: bold; 
+}
+
+input[type="checkbox"].on-off + ul{
+    height: 0;
+    overflow: hidden;
+}
+
+input[type="checkbox"].on-off:checked + ul{
+    height: auto;
+}
+input[type="checkbox"].on-off:checked  :last-child{
+    height: auto;
+}
+
+input.submitreply{
+    background-color: #b8860b;
+    border: 2px solid #b8860b;
+    color: #fff;
+    line-height: 30px;
+    margin: 0px 0px;
+    padding: 0px 10px;
+    text-decoration: none;
+    font-size: 15px;
+    width:auto;
+    text-align: center;
+    margin-right: 10px;
+    order: 2;
+}
+input.submitreply:hover{
+    background-color: #fff;
+    border-color: #b8860b;
+    color: #b8860b;
+    text-shadow: 1px 1px 0 #00000;
+    cursor: pointer;
+}
+input.returnreply{
+    background-color: #808080;
+    border: 2px solid #808080;
+    color: #fff;
+    line-height: 30px;
+    margin: 0px 0px;
+    margin-right: 10px;
+    padding: 0px 10px;
+    text-decoration: none;
+    font-size: 15px;
+    width:auto;
+    text-align: center;
+    order: 1;
+}
+input.returnreply:hover{
+     background-color: #fff;
+    border-color: #808080;
+    color: #808080;
+    text-shadow: 1px 1px 0 #00000;
+    cursor: pointer;
+}
+
+div.menu textarea{
+    width: 815px;
+}
+
+div.block_form{
+    justify-content: center;
+    display: inline-flex;
+/*    margin: 10px auto;*/
+    text-align: center;
+    width: 100%;
+   
+}
+div.block_replyform{
+/*        justify-content: center;*/
+    display: inline-flex;
+/*    margin: 10px auto;*/
+    text-align: center;
+    width: 100%;
+   
+}
+span.delete{
+    float:right;
+  
+}
+span.date{
+    float:right;
+    padding-right: 10px;
+}
+a.delete{
+    color: white;
+}

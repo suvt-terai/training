@@ -1,0 +1,29 @@
+<h2>返信画面</h2> 
+<a href="/admin">管理画面</a>
+<div class="menu">
+ 
+        <ul>
+
+            <input type="checkbox" id="title3" class="on-off" checked />
+            <li><form action="/request_reply/complete" method="post">  
+                <input type="hidden" name="user_id" value="{{post.user_id}}"/>
+                    <p> {{post.adminname}}<input type="hidden" name="adminname" value="{{post.adminname}}" /></p>
+                {{post.reply|nl2br}}<input type="hidden" name="reply" value="{{post.reply}}" /></li>
+            <li><div class="block_replyform">
+                    <input type="submit" class="submitreply" value="送信する">
+                    <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+
+                    </form>
+                    <form action="../request_reply/" method="post">
+
+                        {%for key, value in post %}
+                            <input type="hidden" name="{{key}}" value="{{value}}">
+                        {%endfor%}
+                    <input type="submit" class="returnreply" value="修正する" /></li></div>
+                </form>
+
+        </ul>
+
+
+        </ul>
+</div>

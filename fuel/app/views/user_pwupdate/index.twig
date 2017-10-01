@@ -1,0 +1,27 @@
+<h3>お客様情報</h3>
+<form action="/user_pwupdate/confirm" method="post">
+    <h4>パスワード変更</h4>
+    <table>
+        <tr>
+            <th>ID</th>
+            <td>{% if post %}{{post.id}}{%else %}{{data.id}}{%endif%}<input type="hidden" size="40" name="id" value="{% if post %}{{post.id}}{%else %}{{data.id}}{%endif%}" /></td>
+        </tr>
+        <tr>
+            <th>お名前<span>※</span></th>
+            <td>{% if post %}{{post.username}}{%else %}{{data.username}}{%endif%}<input type="hidden" size="40" name="username" value="{% if post %}{{post.username}}{%else %}{{data.username}}{%endif%}" /></td>
+        
+        <tr>
+            <th>新しいパスワード<span>※</span></th>
+            <td><input type="password" name="new_password" value="{{post.new_password}}" size="50"  required/>
+                {% if error.new_password %}<h5>{{error.new_password}}</h5>{% endif %}</td>
+        </tr>
+        <tr>
+            <th>パスワード確認<span>※</span></th>
+            <td><input type="password" name="new_passwordconfirm" value="{{post.new_passwordconfirm}}" size="50"  required/>
+                {% if error.new_passwordconfirm %}<h5>{{error.new_passwordconfirm}}</h5>{% endif %}</td>
+        </tr>
+
+    </table>
+    <p><input type="submit" class="submit" value="内容を確認の上、確認画面へ" /></p>
+    <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+</form>    

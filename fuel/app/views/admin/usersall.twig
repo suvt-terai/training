@@ -1,0 +1,25 @@
+
+<a href="/admin"  >管理画面TOP</a>
+<h2>会員情報一覧</h2>
+<table border='1'>
+<tr>
+        <th>ユーザーID</th>
+        <th>ユーザー名</th>
+        <th>会員情報変更</th>
+        <th>会員パスワード</th>
+        <th>削除</th>
+        
+</tr>
+{% for key,val in page%}
+<tr>
+        <td>  {{val.id}}</td>
+        <td> {{val.username|nl2br}}</td>
+      
+        <td><a href="/user_update?id={{val.id}}">変更<input type="hidden" name="id" value="{{val.id}}"></a></td>
+         <td><a href="/user_pwupdate?id={{val.id}}">変更<input type="hidden" name="id" value="{{val.id}}"></a></td>
+	<td><a href="/user_delete?id={{val.id}}">削除<input type="hidden" name="id" value="{{val.id}}"> </a></td>       
+</tr>
+
+{%endfor%}
+  </table>
+{{pagination}}

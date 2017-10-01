@@ -1,0 +1,17 @@
+<header class="block_headter">
+        <div class="block_logo">
+            <div class="banner_logo">
+                <a href="/"><img src="/assets/img/logo.png" alt="logo"></a>
+            </div>
+        </div>
+        <div class="block_link">
+            <div class="banner_login_mypage">
+                {% if login %}<a href="/mypage">マイページ</a>
+                    {% else %}<a href="/login">ログイン</a>{% endif %}
+            </div>
+            <div class="banner_siryosekyu">
+                {% if login %}<a href="/mypage/logout">ログアウト</a>
+                {% else %}<a href="/request">資料請求</a>{% endif%}
+            </div>
+        </div>
+</header>

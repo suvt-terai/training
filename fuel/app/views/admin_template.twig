@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {#{% if noindex %}
+        <meta name="robots" content="noindex" />
+        {% endif %}#}
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta http-equiv="Content-Style-Type" content="text/css" />
+        <meta http-equiv="Content-Script-Type" content="text/javascript" />
+        {#{% if description %}
+        <meta name="description" content="{{ description }}" />
+        {% endif %}
+        {% if keywords %}
+        <meta name="keywords" content="{{ keywords }}" />
+        {% endif %}#}
+        <title>{{ constant('ENV_NAME') }}{{ title }}{{ title ? ' | '}}{{ constant('SITE_NAME') }}</title>
+        {#{{ asset_css('bootstrap.min.css') -}}#}
+{#       {{ asset_css('base.css') -}}#}
+        {{ asset_css(add_css) -}}
+        {#{{ asset_js('bootstrap.min.js') -}}
+        {{ asset_js('base.js') -}}
+        {{ asset_js(add_js) -}}#}
+    </head>
+    <body>
+        <div class="wrap">
+            <h1>管理画面</h1>
+            {{ content -}}
+  
+        </div>
+    </body>
+</html>
+

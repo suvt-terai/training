@@ -1,0 +1,26 @@
+
+{% include 'inc/header.twig' %}
+<div class="contents">
+    <div class="block_img">
+        <h1>ログイン</h1>
+    </div>
+
+    <form action="/login/login" method="post">
+        <div class="block_form ">
+{% if failedlogin %}<h5>ログインに失敗しました</h5>{% endif %}
+            <dl>
+                <dt>メールアドレス</dt>
+                <dd><input type="text" name="email" size="40"  value="{{data.email}}"  />
+                  {% if error.email %}<h5>{{error.email}}</h5>{% endif %}</dd>
+            </dl>
+            <dl>
+                <dt>パスワード</dt>
+                <dd><input type="password" name="password"  value="{{data.password}}" size="40"/>
+                  {% if error.password %}<h5>{{error.password}}</h5>{% endif %}<dd>
+            </dl>
+
+            <input type="submit" class="submit" value="ログイン" />
+            <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+        </div>
+    </form>
+</div>

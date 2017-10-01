@@ -1,0 +1,117 @@
+
+{% include 'inc/header.twig' %}
+<div class="block_top center">
+
+{#今後、TOP画面をスライドで画像表示したいため
+<div id="slideshow">
+<div class="slideContents">
+<section id="slide1">
+<img src="/assets/img/topimage6.jpg">
+</section>
+<section id="slide2">
+<img src="/assets/img/topimage6.jpg">
+</section>
+<section id="slide3">
+<img src="/assets/img/topimage6.jpg">
+</section>
+<section id="slide4">
+<img src="/assets/img/topimage6.jpg">
+</section>
+<section id="slide5">
+<img src="/assets/img/subpage6.jpg">
+</section>
+</div>
+        
+</div>#}
+    <img src="/assets/img/topimage5.jpg" alt="topimage5" >
+
+</div>
+<div class="block_intro space center">
+    <h1><span class="blue">W</span>edding × <span class="blue">H</span>oneymoon × <span class="blue">T</span>ravel</h1>
+    <h3><span>世界遺産の美しいラグーンを背景にフランスのエスプリ漂うニューカレドニア・ウェディング</span></h3>
+    <h4>“天国に一番近い島”との呼ばれ、世界遺産でもあるニューカレドニアで最高のウェディング。
+        リゾートとシティの両方の魅力を兼ね備えた挙式から、眩しすぎるホワイトサンドのビーチでの挙式と、
+        豊富な挙式のスタイルをお選び頂けるニューカレドニア。純白のドレスが映える最上のウェディングが叶います。</h4>
+</div>
+<div class="block_subtitle space">
+    <h2>Wedding Plan</h2>
+</div>
+<div class="block_border space">
+    <div class="block_plan">
+        <h3><span>基本プラン
+                <span>178,000円</span>（適用期間：2017年4月1日～2018年3月31日）</span></h3>
+        ﻿<h4>＊式場装飾と施設使用料<br>
+        ＊立会人<br>
+        ＊式中の音楽（iPod)<br>
+        ＊ウェディングコーディネーター(日本人）<br>
+        ＊挙式証明書（法的効力無し）<br>
+        ＊ブーケ＆ブートニア（造花）<br>
+        ＊ウェルカムボード<br>
+        ＊ウェディングケーキ（新郎新婦様分）<br>
+        ＊乾杯用スパークリングワイン（新郎新婦様分）<br>
+        ＊リングピロー（レンタル）<br>
+        </h4>
+    </div>
+</div>
+<div class="block_wedding space">
+    {# <div class="block_wedding1">#}
+    <div class="image_wedding1">
+        <img src="/assets/img/topimage3.jpg" alt="topimage3" >
+    </div>
+    <div class="description_wedding1">
+        <h3><span>ヌメアでウェディング</span></h3>
+        <p>ヌメアでは、南国のおおらかさとヨーロッパの洗練性を兼ね備えた結婚式を挙げることができます。
+            空の玄関口に近いヌメアなら、友人や親類の参列にも便利。
+            また、陽気なヌメアっ子も惜しみなく祝福してくれるでしょう。
+            エステサロンやリムジンカーなどの手配が楽にできるのもヌメアならではです。</p>
+        <p>■料金<br>
+            ￥338,000～￥788,000
+        </p>
+    </div>
+  
+    <div class="image_wedding2">
+        <img src="/assets/img/weddingimage.jpg" alt="weddingimage" >
+    </div>
+    <div class="description_wedding2">
+
+        <h3><span>ニューカレドニア・ウェディング・フォトプラン</span></h3>
+        <p>ニューカレドニアの美しいロケーションを舞台に、ロマンティックな記念のフォトプラン。
+            プロのカメラマンがおふたりの最高の瞬間を青い海＆青い空をバックに撮影します。</p>
+        <p>そのほか、挙式後に ホテルのバンケットルームをつかったパーティや 
+            海上パーティー、 貸し切りヨットクルーズ 、 ヘリコプター遊覧など、オリジナルなアレンジが可能です。
+            あなただけの思い出を。</p>
+        <p>■料金 <br>
+            ￥88,000～￥305,000</p> 
+    </div>
+
+</div>
+<div class="banner_request center">
+      {% if login %}
+                {% else %}<a href="/request">資料請求はこちら</a>{% endif%}
+</div>
+<div class="map">
+<div id="map_canvas">
+  
+</div>
+</div>
+<script>
+var map;
+function initMap() {
+    var latlng = new google.maps.LatLng(-22.2558,166.4505);
+  var opts = {
+    zoom: 5,
+    center: latlng,
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("map_canvas"), opts);
+
+  var m_latlng1 = new google.maps.LatLng(-22.2558,166.4505);
+  var marker1 = new google.maps.Marker({
+    position: m_latlng1,
+    map: map
+  });
+}
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyD_W6FfVcET42jhB5dGpICGqzdqYV9e6SY&callback=initMap"></script>
+

@@ -1,0 +1,59 @@
+<h2>変更画面</h2>  
+<form action="/user_delete/complete" method="post">
+
+    <table>
+        <tr>
+            <th>ID</th>
+            <td>{{data.id}}<input type="hidden" size="40" name="id" value="{{data.id}}" /></td>
+        </tr>
+        <tr>
+            <th>お名前<span>※</span></th>
+            <td>{{data.username}}<input type="hidden" name="username" value="{{data.username}}"  /></td>
+        </tr>
+        <tr>
+            <th>ふりがな<span>※</span></th>
+            <td>{{profile_fields.userkana}}<input type="hidden" name="userkana" value="{{profile_fields.userkana}}"/></td>
+        </tr>
+        <tr>
+            <th rowspan="6">住所<span>※</span></th>
+        </tr>
+        <tr>
+
+            <td>郵便番号<span>※</span> : {{profile_fields.postalcode}}<input type="hidden"  name="postalcode" value="{{profile_fields.postalcode}}"  /></td>
+        </tr>
+        <tr>
+
+            <td>都道府県<span>※</span> : {{profile_fields.pref}}<input type="hidden" name="pref" value="{{profile_fields.pref}}">
+        </tr>
+        <tr>
+
+            <td>市区町村<span>※</span> : {{profile_fields.cities}}<input type="hidden"  name="cities" value="{{profile_fields.cities}}" /></td>
+        </tr>
+        <tr>
+            <td>町域名・番地など<span>※</span> : {{profile_fields.adress1}}<input type="hidden"  name="adress1" value="{{profile_fields.adress1}}" /></td>
+        </tr>
+        <tr>
+            <td>建物名・部屋番号など : {{profile_fields.adress2}}<input type="hidden" name="adress2" value="{{profile_fields.adress2}}" /></td>
+        </tr>
+        <tr>
+            <th>電話番号<span>※</span></th>
+            <td>{{profile_fields.tel}}<input type="hidden" size="40" name="tel" value="{{profile_fields.tel}}" placeholder="0668461120（ハイフンなし）"  required/></td>
+        </tr>
+        <tr>
+            <th>メールアドレス<span>※</span></th>
+            <td>{{data.email}}<input type="hidden" size="40" name="email" value="{{data.email}}" placeholder="wedding@gmail.com"  required/></td>
+        </tr>
+
+    </table>
+    <div class="block_form ">
+        <input class="submit" type="submit" value="送信する" />
+        <input type="hidden" name="{{ tokenkey }}" value="{{ csrftoken }}" />
+</form>
+{#<form action="../user_delete" method="post">
+    {%for key, value in data %}
+        <input type="hidden" name="{{key}}" value="{{value}}">
+    {%endfor%}
+    <input type="submit" class="return" value="修正する" />
+</div>
+</form>
+#}</div>

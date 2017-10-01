@@ -1,0 +1,48 @@
+
+body{
+    margin: 0px auto;
+}
+div.block_title{
+    text-align: center;
+    height: 60px;
+    padding-left: 10px; 
+}
+div.block_title img{
+    height: 60px;
+}
+
+span{
+    color: red;
+}
+div.block_form p{
+    margin: 30px auto;
+    text-align: center;
+}
+
+div.block_form{
+    justify-content: center;
+    display: inline-flex;
+    text-align: center;
+    width: 100%;
+
+}
+
+div.block_request{
+    background-image: url('/assets/img/subpage1.jpg');
+    background-size: cover;
+}
+
+div.block_img{
+    background-image: url(/assets/img/subpage1.jpg);
+}
+@media screen and (max-device-width: 480px) { 
+    div.block_title{
+    text-align: center;
+    height: 80px;
+    padding-left: 10px; 
+}
+div.block_title img{
+    height: 80px;
+}
+
+}
